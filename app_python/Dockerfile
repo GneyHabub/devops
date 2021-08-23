@@ -1,13 +1,14 @@
 FROM python:3-alpine
 
-RUN mkdir -p /app
+RUN mkdir -p /app && adduser -D myuser && chown -R myuser /app
 WORKDIR /app
 
-COPY requirements.txt /app/
+COPY requirements.txt .
+COPY main.py .
 
-RUN python -m pip install -r requirements.txt
+USER myuser
 
-COPY main.py /app/
+RUN python -m pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 

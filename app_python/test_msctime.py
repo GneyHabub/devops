@@ -11,10 +11,3 @@ def test_msctime():
     time.sleep(1)
     time2 = main.msctime()
     assert time1 != time2, "Should return different data"
-
-def test():
-    """Run all tests."""
-
-    test_msctime()
-
-test()
