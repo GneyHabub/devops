@@ -78,7 +78,11 @@ You have several options for installing and running the project:
     python -m pip install -r requirements.txt
     python main.py 
     ```
-2. Docker (TBC)
+2. Docker:
+  ```sh
+  docker pull gneyhabub/devops-python-app:0.0.1 
+  docker run -p 8080:8080 gneyhabub/devops-python-app:0.0.1
+  ```
 
 
 <!-- CONTRIBUTING -->
