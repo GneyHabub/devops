@@ -9,6 +9,7 @@ pipeline {
     stage('deps') {
       steps {
         sh '''
+                    whoami
                     python -m pip install --upgrade pip
                     pip install -r app_python/requirements.txt
                 '''
