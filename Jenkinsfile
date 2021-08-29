@@ -9,6 +9,7 @@ pipeline {
     stage('deps') {
       steps {
         sh '''
+                    apt-get install sudo -y
                     sudo python -m pip install --upgrade pip
                     sudo pip install -r app_python/requirements.txt
                 '''
