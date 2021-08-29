@@ -4,8 +4,8 @@ pipeline {
         stage('deps') {
             steps {
                 sh '''
-                    python -m pip install --upgrade pip
-                    pip install -r app_python/requirements.txt
+                    sudo python -m pip install --upgrade pip
+                    sudo pip install -r app_python/requirements.txt
                 '''
             }
         }
