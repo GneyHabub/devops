@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'python:3-slim'
+      image 'python:3.9-slim'
     }
 
   }
@@ -9,9 +9,8 @@ pipeline {
     stage('deps') {
       steps {
         sh '''
-                    apt-get install sudo -y
-                    sudo python -m pip install --upgrade pip
-                    sudo pip install -r app_python/requirements.txt
+                    python -m pip install --upgrade pip
+                    pip install -r app_python/requirements.txt
                 '''
       }
     }
