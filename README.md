@@ -1,3 +1,6 @@
+![unit-test](https://github.com/GneyHabub/devops/actions/workflows/unit-tests.yml/badge.svg)
+![ci-to-dockerhub](https://github.com/GneyHabub/devops/actions/workflows/push-to-dockerhub.yml/badge.svg)
+
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
@@ -79,9 +82,15 @@ You have several options for installing and running the project:
     python main.py 
     ```
 2. Docker:
+    ```sh
+    docker pull gneyhabub/devops-python-app:0.0.1 
+    docker run -p 8080:8080 gneyhabub/devops-python-app:0.0.1
+    ```
+
+In order to run unit tests execute following commands:
   ```sh
-  docker pull gneyhabub/devops-python-app:0.0.1 
-  docker run -p 8080:8080 gneyhabub/devops-python-app:0.0.1
+  cd app_python
+  pytest
   ```
 
 
