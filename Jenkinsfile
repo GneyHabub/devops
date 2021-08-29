@@ -7,7 +7,7 @@ pipeline {
 
   }
   stages {
-    stage('deps') {
+    stage('installation') {
       steps {
         sh '''
                     python -m pip install --upgrade pip

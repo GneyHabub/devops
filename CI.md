@@ -7,3 +7,9 @@
 3. Don’t use self-hosted runners in a public repository. If you’re working on a public Action, somebody could fork it and submit a pull request for a workflow containing malicious code. That malicious code will then be executed by the Action on your self-hosted machine, and could easily escape its sandbox, invade your network, and do all sorts of bad things.
 
 4. Use layer caching for, again, avoiding redundant seconds running on the VM to save time -> money.
+
+## Jenkins best practices:
+
+1. Using Declarative syntax for the Jenkinsfile.
+
+2. Don't use input within an agent.
