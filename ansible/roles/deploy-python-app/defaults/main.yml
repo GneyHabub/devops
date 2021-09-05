@@ -1,0 +1,4 @@
+---
+create_containers: 1
+default_container_name: msctime
+default_container_image: gneyhabub/python_app:latest
