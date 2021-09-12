@@ -29,3 +29,12 @@ services:
       - "3000:3000"
     networks:
       - loki
+    
+  prometheus:
+    image: prom/prometheus:v2.29.2
+    volumes:
+      - ${PWD}/prometheus-conf.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - loki
+    ports:
+      - "9090:9090"
