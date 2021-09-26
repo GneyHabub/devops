@@ -47,12 +47,20 @@ spec:
           #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config
+              mountPath: {{ .Values.configPath }}
+              readOnly: true
           env:
             - name: MY_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: credentials
                   key: password
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "python-app.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
