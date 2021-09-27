@@ -1,10 +1,10 @@
 FROM python:3-alpine
 
-RUN mkdir -p /app && adduser -D myuser && chown -R myuser /app
+RUN mkdir -p /app && adduser -D myuser && chown -R myuser:myuser /app && mkdir -p /app/data && chown -R myuser:myuser /app/data
 WORKDIR /app
 
-COPY requirements.txt .
-COPY main.py .
+COPY --chown=myuser:myuser requirements.txt .
+COPY --chown=myuser:myuser main.py .
 
 USER myuser
 
