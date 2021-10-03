@@ -8,9 +8,11 @@ image:
   repository: gneyhabub/devops-python-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.0.1"
+  tag: "latest"
 
-configPath: "/etc/config"
+volumes:
+  configPath: "/etc/config"
+  visits: "/app/data"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -39,8 +41,18 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  name: python-app
   type: ClusterIP
   port: 80
+
+statefulSet:
+  podManagementPolicy: "Parallel"
+  volumeClaimTemplates:
+    spec:
+      accessModes: [ "ReadWriteOnce" ]  # mountable RW to one node only
+      resources:
+        requests:
+          storage: 256M
 
 ingress:
   enabled: false
