@@ -6,7 +6,7 @@ replicaCount: 3
 
 image:
   repository: gneyhabub/devops-python-app
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -45,10 +45,10 @@ service:
   port: 80
 
 statefulSet:
-  podManagementPolicy: "Parallel"
+  podManagement: "Parallel"
   volumeClaimTemplates:
     spec:
-      accessModes: [ "ReadWriteOnce" ]  # mountable RW to one node only
+      accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
           storage: 256M

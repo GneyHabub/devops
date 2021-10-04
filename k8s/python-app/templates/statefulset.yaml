@@ -6,7 +6,7 @@ metadata:
     {{- include "python-app.labels" . | nindent 4 }}
 spec:
   serviceName: {{ .Values.service.name }}
-  podManagementPolicy: {{ .Values.statefulSet.podManagementPolicy }}
+  podManagementPolicy: {{ .Values.statefulSet.podManagement }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
