@@ -12,6 +12,7 @@ image:
 
 volumes:
   visits: "/app/data"
+  workdir: "/app/workdir"
 
 imagePullSecrets: []
 nameOverride: ""
